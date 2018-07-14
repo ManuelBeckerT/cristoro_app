@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comuna:</strong>
+  <%= @register.comuna %>
+</p>
+
+<p>
+  <strong>Calle:</strong>
+  <%= @register.calle %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @register.numero %>
+</p>
+
+<p>
+  <strong>Encargado:</strong>
+  <%= @register.encargado %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @register.telefono %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @register.correo %>
+</p>
+
+<p>
+  <strong>Contenedores:</strong>
+  <%= @register.contenedores %>
+</p>
+
+<p>
+  <strong>Establecimiento:</strong>
+  <%= @register.establecimiento %>
+</p>
+
+<%= link_to 'Edit', edit_register_path(@register) %> |
+<%= link_to 'Back', registers_path %>

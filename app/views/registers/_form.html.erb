@@ -1,0 +1,57 @@
+<%= form_with(model: register, local: true) do |form| %>
+  <% if register.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(register.errors.count, "error") %> prohibited this register from being saved:</h2>
+
+      <ul>
+      <% register.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :comuna %>
+    <%= form.text_field :comuna, id: :register_comuna %>
+  </div>
+
+  <div class="field">
+    <%= form.label :calle %>
+    <%= form.text_field :calle, id: :register_calle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero %>
+    <%= form.number_field :numero, id: :register_numero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :encargado %>
+    <%= form.text_field :encargado, id: :register_encargado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono %>
+    <%= form.number_field :telefono, id: :register_telefono %>
+  </div>
+
+  <div class="field">
+    <%= form.label :correo %>
+    <%= form.text_field :correo, id: :register_correo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contenedores %>
+    <%= form.number_field :contenedores, id: :register_contenedores %>
+  </div>
+
+  <div class="field">
+    <%= form.label :establecimiento %>
+    <%= form.text_field :establecimiento, id: :register_establecimiento %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
