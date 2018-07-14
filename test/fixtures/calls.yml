@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_llamado: 2018-07-13 21:55:45
+  fecha_retiro: 2018-07-13 21:55:45
+  status: MyString
+
+two:
+  fecha_llamado: 2018-07-13 21:55:45
+  fecha_retiro: 2018-07-13 21:55:45
+  status: MyString

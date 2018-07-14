@@ -1,0 +1,32 @@
+<%= form_with(model: call, local: true) do |form| %>
+  <% if call.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(call.errors.count, "error") %> prohibited this call from being saved:</h2>
+
+      <ul>
+      <% call.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fecha_llamado %>
+    <%= form.datetime_select :fecha_llamado, id: :call_fecha_llamado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_retiro %>
+    <%= form.datetime_select :fecha_retiro, id: :call_fecha_retiro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :call_status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
