@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <% @registers.each do |r| %>
+  	<%= r.comuna %>
+  <% end %>
+
+  <%= collection_select(:register, :register_id, Register.all, :comuna, :comuna, :prompt => true) %>
+
   <div class="field">
     <%= form.label :fecha_llamado %>
     <%= form.datetime_select :fecha_llamado, id: :call_fecha_llamado %>

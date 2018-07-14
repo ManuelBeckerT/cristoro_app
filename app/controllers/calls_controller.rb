@@ -15,6 +15,7 @@ class CallsController < ApplicationController
   # GET /calls/new
   def new
     @call = Call.new
+    @registers = Register.all
   end
 
   # GET /calls/1/edit
