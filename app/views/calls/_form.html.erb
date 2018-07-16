@@ -11,28 +11,20 @@
     </div>
   <% end %>
 
-  <% @registers.each do |r| %>
-  	<%= r.comuna %>
-  <% end %>
 
-  <%= collection_select(:register, :register_id, Register.all, :comuna, :comuna, :prompt => true) %>
 
-  <div class="field">
-    <%= form.label :fecha_llamado %>
-    <%= form.datetime_select :fecha_llamado, id: :call_fecha_llamado %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fecha_retiro %>
-    <%= form.datetime_select :fecha_retiro, id: :call_fecha_retiro %>
-  </div>
-
-  <div class="field">
+  <%= simple_form_for @call do |c| %>
+    <%= select_tag(:register_id, options_for_select(@registers), :prompt => "Seleccionar una direccion") %>
+    <p> </p>
+    <%= c.label :fecha_llamado %>
+    <%= c.datetime_select :fecha_llamado, id: :call_fecha_llamado %>
+    <%= c.label :fecha_retiro %>
+    <%= c.datetime_select :fecha_retiro, id: :call_fecha_retiro  %>
     <%= form.label :status %>
     <%= form.text_field :status, id: :call_status %>
-  </div>
+    <%= c.button :submit, 'Crear' %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <% end %>
+
+
 <% end %>

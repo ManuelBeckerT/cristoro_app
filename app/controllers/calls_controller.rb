@@ -15,7 +15,7 @@ class CallsController < ApplicationController
   # GET /calls/new
   def new
     @call = Call.new
-    @registers = Register.all
+    @registers = Register.all.map{ |r| [r.calle + ', ' + r.comuna, r.id] }
   end
 
   # GET /calls/1/edit
@@ -26,6 +26,7 @@ class CallsController < ApplicationController
   # POST /calls.json
   def create
     @call = Call.new(call_params)
+    @call.register_id =  params[:register_id]
 
     respond_to do |format|
       if @call.save
@@ -64,6 +65,10 @@ class CallsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def call_params
+      params.require(:call).permit(:fecha_llamado, :fecha_retiro, :register_id, :status)
+    end
+
     def set_call
       @call = Call.find(params[:id])
     end
