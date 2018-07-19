@@ -24,7 +24,13 @@ class RegistersController < ApplicationController
   # POST /registers
   # POST /registers.json
   def create
-    @register = Register.new(register_params)
+    atributes = {
+      comuna: register_params[:comuna],
+      calle: register_params[:calle],
+      numero: register_params[:numero]
+    }
+    @register = Register.where(atributes).first
+    @register = Register.new(register_params) #unless @register
 
     respond_to do |format|
       if @register.save

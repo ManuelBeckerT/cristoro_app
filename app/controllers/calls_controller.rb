@@ -5,6 +5,12 @@ class CallsController < ApplicationController
   # GET /calls.json
   def index
     @calls = Call.all
+    if params[:register].blank?
+      @calls = Call.all
+    else
+      @foro_id= Foro.find_by(nombre: params[:foro]).id
+      @publications= Publication.where(:foro_id => @foro_id).order(created_at: :desc)
+    end
   end
 
   # GET /calls/1
