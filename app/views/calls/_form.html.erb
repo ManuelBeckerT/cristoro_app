@@ -11,20 +11,10 @@
     </div>
   <% end %>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <% Register.all.each do |foro| %>
-      <li class ="<%= 'active' if params[:foro]== foro.comuna %>">
-        <%= link_to foro.comuna, calls_path(foro: foro.comuna), class: "link" %>
-      </li>
-    <% end %>
-  </div>
-</div>
-
 
 
   <%= simple_form_for @call do |c| %>
-
-    <%= select_tag(:register_id, options_for_select(@registers), :prompt => "Seleccionar una comuna") %>
+    <%= select_tag(:register_id, options_for_select(@registers), :prompt => "Seleccionar una direccion") %>
     <p> </p>
     <%= c.label :fecha_llamado %>
     <%= c.datetime_select :fecha_llamado, id: :call_fecha_llamado %>
