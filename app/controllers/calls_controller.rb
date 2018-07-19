@@ -15,7 +15,9 @@ class CallsController < ApplicationController
   # GET /calls/new
   def new
     @call = Call.new
-    @registers = Register.all.map{ |r| [r.calle + ', ' + r.comuna, r.id] }
+    #@registers = Register.all.map{ |r| [r.calle + ', ' + r.comuna, r.id].uniq }
+    @registers = Register.all.map{ |r| [r.calle + ' ' + r.numero.to_s, r.id] }
+
   end
 
   # GET /calls/1/edit

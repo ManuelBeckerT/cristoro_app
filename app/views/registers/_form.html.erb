@@ -11,10 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :comuna %>
-    <%= form.text_field :comuna, id: :register_comuna %>
+  <div class = "field">
+      <%= form.select :comuna, [['Alhué','Alhué'],['Buin','Buin'],['Calera de Tango','Calera de Tango'],
+      ['Cerrillos','Cerrillos'],['Cerro Navia','Cerro Navia'],['Colina','Colina'],
+      ['Conchalí','Conchalí'],['Curacaví','Curacaví'],['El Bosque','El Bosque'],
+      ['El Monte','El Monte'],['Estación Central','Estación Central'],['Huechuraba','Huechuraba'],
+      ['Independencia','Independencia'],['Isla de Maipo','Isla de Maipo'],['La Cisterna','La Cisterna'],
+      ['La Florida','La Florida'],['La Granja','La Granja'],['La Pintana','La Pintana'],
+      ['La Reina','La Reina'],['Lampa','Lampa'],['Las Condes','Las Condes'],
+      ['Lo Barnechea','Lo Barnechea'],['Lo Espejo','Lo Espejo'],['Lo Prado','Lo Prado'],
+      ['Macul','Macul'],['Maipú','Maipú'],['María Pinto','María Pinto'],
+      ['Melipilla','Melipilla'],['Ñuñoa','Ñuñoa'],['Padre Hurtado','Padre Hurtado'],
+      ['Paine','Paine'],['Pedro Aguirre Cerda','Pedro Aguirre Cerda'],['Peñaflor','Peñaflor'],
+      ['Peñalolén','Peñalolén'],['Pirque','Pirque'],['Providencia','Providencia'],
+      ['Pudahuel','Pudahuel'],['Puente Alto','Puente Alto'],['Quilicura','Quilicura'],
+      ['Quinta Normal','Quinta Normal'],['Recoleta','Recoleta'],['Renca','Renca'],
+      ['San Bernardo','San Bernardo'],['San Joaquín','San Joaquín'],['San José de Maipo','San José de Maipo'],
+      ['San Miguel','San Miguel'],['San Pedro','San Pedro'],['San Ramón','San Ramón'],
+      ['Santiago','Santiago'],['Talagante','Talagante'],['Til Til','Til Til'],
+      ['Vitacura','Vitacura']], :prompt => "Seleccionar una comuna"%>
   </div>
+
 
   <div class="field">
     <%= form.label :calle %>
@@ -46,9 +63,9 @@
     <%= form.number_field :contenedores, id: :register_contenedores %>
   </div>
 
-  <div class="field">
-    <%= form.label :establecimiento %>
-    <%= form.text_field :establecimiento, id: :register_establecimiento %>
+  <div class = "field">
+      <%= form.select :establecimiento, [['Casa','Casa'],['Edificio','Edificio'],['Club Deportivo','Club Deportivo'],
+      ['Centro de Eventos','Centro de Eventos']], :prompt => "Seleccionar tipo de establecimiento"%>
   </div>
 
   <div class="actions">
