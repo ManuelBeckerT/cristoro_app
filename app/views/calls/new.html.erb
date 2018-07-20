@@ -1,5 +1,21 @@
 <h1>New Call</h1>
 
-<%= render 'form', call: @call %>
+<li class = "dropdown">
+  <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown" role ="button" aria-expanded="false"> Comunas <span class ="caret"></span></a>
+  <ul class ="dropdown-menu" role = "menu">
+    <% @comunas.each do |comuna| %>
+      <li>
+        <%= link_to comuna, new_call_path(filtro_comuna: comuna), class: "link" %>
+      </li>
+    <% end %>
+  </ul>
+</li>
+
+<%if !params[:filtro_comuna].blank? %>
+  <%= render 'form', call: @call %>
+<% end %>
+
+
+
 
 <%= link_to 'Back', calls_path %>

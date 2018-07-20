@@ -4,8 +4,19 @@ class CallsController < ApplicationController
   # GET /calls
   # GET /calls.json
   def index
-    @calls = Call.all
+
     @comunas = Register.distinct.pluck(:comuna)
+    @registers = Register.all
+    if params[:filtro_comuna].blank?
+      @calls = Call.all
+    else
+      @registers = Register.where(:comuna => params[:filtro_comuna])
+      @calls = []
+      @registers.each do |r|
+        @call_r = Call.where(:register_id => r.id)
+        @calls = @calls + @call_r
+      end
+    end
   end
 
   # GET /calls/1
@@ -15,8 +26,16 @@ class CallsController < ApplicationController
 
   # GET /calls/new
   def new
+    @comunas = Register.distinct.pluck(:comuna)
+    @registers = Register.all
+
     @call = Call.new
-    @registers = Register.all.map{ |r| [r.calle + ' ' + r.numero.to_s, r.id] }
+    if params[:filtro_comuna].blank?
+      @calls = Call.all
+    else
+      @registers = Register.where(:comuna => params[:filtro_comuna]).map{ |r| [r.calle + ' ' + r.numero.to_s, r.id] }
+
+    end
   end
 
   # GET /calls/1/edit
