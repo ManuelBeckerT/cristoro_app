@@ -21,7 +21,10 @@
     <%= c.label :fecha_retiro %>
     <%= c.datetime_select :fecha_retiro, id: :call_fecha_retiro  %>
     <%= form.label :status %>
-    <%= form.text_field :status, id: :call_status %>
+    <div class = "field">
+        <%= form.select :status, [['Urgente', 'Urgente'],['En proceso','En proceso'],
+        ['Normal','Normal']], :prompt => "Estado"%>
+    </div>
     <%= c.button :submit, 'Crear' %>
 
   <% end %>
