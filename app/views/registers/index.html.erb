@@ -1,40 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Registers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Comuna</th>
-      <th>Calle</th>
-      <th>Numero</th>
-      <th>Encargado</th>
-      <th>Telefono</th>
-      <th>Correo</th>
-      <th>Contenedores</th>
-      <th>Establecimiento</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @registers.each do |register| %>
+<div class="jumbotron text-center">
+ <h1>PUNTOS DE RECOLECCIÓN</h1>
+ <%= button_to "Crear Punto", new_register_path, :id => "open-contacts-dialog-btn",
+       :class => "inbox-sf-add-btn tip", :method => :get %>
+</div>
+<div class="container">
+  
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= register.comuna %></td>
-        <td><%= register.calle %></td>
-        <td><%= register.numero %></td>
-        <td><%= register.encargado %></td>
-        <td><%= register.telefono %></td>
-        <td><%= register.correo %></td>
-        <td><%= register.contenedores %></td>
-        <td><%= register.establecimiento %></td>
-        <td><%= link_to 'Show', register %></td>
-        <td><%= link_to 'Edit', edit_register_path(register) %></td>
-        <td><%= link_to 'Destroy', register, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Comuna</th>
+        <th>Calle</th>
+        <th>Numero</th>
+        <th>Encargado</th>
+        <th>Telefono</th>
+        <th>Correo</th>
+        <th>Contenedores</th>
+        <th>Establecimiento</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @registers.each do |register| %>
+        <tr>
+          <td><%= register.comuna %></td>
+          <td><%= register.calle %></td>
+          <td><%= register.numero %></td>
+          <td><%= register.encargado %></td>
+          <td><%= register.telefono %></td>
+          <td><%= register.correo %></td>
+          <td><%= register.contenedores %></td>
+          <td><%= register.establecimiento %></td>
+          <td><%= link_to 'Show', register %></td>
+          <td><%= link_to 'Edit', edit_register_path(register) %></td>
+          <td><%= link_to 'Destroy', register, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

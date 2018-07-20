@@ -1,46 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Calls</h1>
+<div class="jumbotron text-center">
+ <h1>INGRESO DE LLAMADAS</h1>
+ <%= button_to "Crear Llamada", new_call_path, :id => "open-contacts-dialog-btn",
+       :class => "inbox-sf-add-btn tip", :method => :get %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Fecha llamado</th>
-      <th>Fecha retiro</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-
-  <li class = "dropdown">
-    <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown" role ="button" aria-expanded="false"> Comunas <span class ="caret"></span></a>
-    <ul class ="dropdown-menu" role = "menu">
-      <% @comunas.each do |comuna| %>
-        <li>
-          <%= link_to comuna, calls_path(filtro_comuna: comuna), class: "link" %>
-        </li>
-      <% end %>
-    </ul>
-  </li>
-
-  <tbody>
-    <% @calls.each do |call| %>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= call.fecha_llamado %></td>
-        <td><%= call.fecha_retiro %></td>
-        <td><%= call.status %></td>
-        <td><%= call.register.comuna %></td>
-        <td><%= link_to 'Show', call %></td>
-        <td><%= link_to 'Edit', edit_call_path(call) %></td>
-        <td><%= link_to 'Destroy', call, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Fella Llamado</th>
+        <th>Fecha Retiro</th>
+        <th>Estado</th>
+        <th>Comuna</th>
+        <th>Calle</th>
+        <th>Número</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @calls.each do |call| %>
+        <tr>
+          <td><%= call.fecha_llamado %></td>
+          <td><%= call.fecha_retiro %></td>
+          <td><%= call.status %></td>
+          <td><%= call.register.comuna %></td>
+          <td><%= call.register.calle %></td>
+          <td><%= call.register.numero %></td>
+          <td><%= link_to 'Show', call %></td>
+          <td><%= link_to 'Edit', edit_call_path(call) %></td>
+          <td><%= link_to 'Destroy', call, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
-
-<%= link_to 'New Call', new_call_path %>
-<%= link_to 'Back', welcome_index_path %>
