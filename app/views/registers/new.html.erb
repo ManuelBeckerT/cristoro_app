@@ -1,5 +1,10 @@
-<h1>New Register</h1>
+<div class = "jumbotron text-center">
+  <h1>Crear Punto</h1>
+</div>
 
-<%= render 'form', register: @register %>
-
-<%= link_to 'Back', registers_path %>
+<div class = "container text-center"
+  <%= render 'form', register: @register %>
+</div>
+<div class = "container text-center">
+  <%= link_to 'Atrás', registers_path, class: "btn btn-default btn-lg"   %>
+</div>

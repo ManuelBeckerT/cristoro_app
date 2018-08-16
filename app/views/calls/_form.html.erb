@@ -12,22 +12,25 @@
   <% end %>
 
 
+  <div class="container-fluid">
+    <%= simple_form_for @call do |c| %>
+      <%= select_tag(:register_id, options_for_select(@registers), :prompt => "Seleccionar una direccion") %>
+      <p> </p>
+      <%= c.label :fecha_llamado %>
+      <%= c.datetime_select :fecha_llamado, id: :call_fecha_llamado %>
+      <p> </p>
+      <%= c.label :fecha_retiro %>
+      <%= c.datetime_select :fecha_retiro, id: :call_fecha_retiro  %>
+      <p> </p>
+      <%= form.label :status %>
+      <%= form.select :status, [['Urgente', 'Urgente'],['En proceso','En proceso'],['Normal','Normal']], :prompt => "Estado"%>
+      <p> </p>
+      <p> </p>
+      <%= c.button :submit, 'Crear' %>
 
-  <%= simple_form_for @call do |c| %>
-    <%= select_tag(:register_id, options_for_select(@registers), :prompt => "Seleccionar una direccion") %>
-    <p> </p>
-    <%= c.label :fecha_llamado %>
-    <%= c.datetime_select :fecha_llamado, id: :call_fecha_llamado %>
-    <%= c.label :fecha_retiro %>
-    <%= c.datetime_select :fecha_retiro, id: :call_fecha_retiro  %>
-    <%= form.label :status %>
-    <div class = "field">
-        <%= form.select :status, [['Urgente', 'Urgente'],['En proceso','En proceso'],
-        ['Normal','Normal']], :prompt => "Estado"%>
-    </div>
-    <%= c.button :submit, 'Crear' %>
-
-  <% end %>
+    <% end %>
+    
+  </div>
 
 
 <% end %>

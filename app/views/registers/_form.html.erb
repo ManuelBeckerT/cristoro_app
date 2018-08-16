@@ -1,3 +1,4 @@
+
 <%= form_with(model: register, local: true) do |form| %>
   <% if register.errors.any? %>
     <div id="error_explanation">
@@ -39,7 +40,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :numero %>
+    <%= form.label :numero, 'Número' %>
     <%= form.number_field :numero, id: :register_numero %>
   </div>
 
@@ -49,7 +50,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :telefono %>
+    <%= form.label :telefono, 'Teléfono +56 9 ' %>
     <%= form.number_field :telefono, id: :register_telefono %>
   </div>
 

@@ -1,24 +1,31 @@
-<h1>New Call</h1>
-
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Comunas
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <% @comunas.each do |comuna| %>
-      <li>
-        <%= link_to comuna, new_call_path(filtro_comuna: comuna), class: "link" %>
-      </li>
-    <% end %>
-  </ul>
+<div class = "jumbotron text-center">
+  <h1>Nueva Llamada</h1>
 </div>
+
+
+<div class = "container text-center">
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Comunas
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <% @comunas.each do |comuna| %>
+        <li>
+          <%= link_to comuna, new_call_path(filtro_comuna: comuna), class: "link" %>
+        </li>
+      <% end %>
+    </div>
+  </div>
+<p></p>
 
 <%if !params[:filtro_comuna].blank? %>
   <%= render 'form', call: @call %>
 <% end %>
 
+<br>
 
+<%= link_to 'Atrás', calls_path, class: "btn btn-default btn-lg"  %>
 
-
-<%= link_to 'Back', calls_path %>
+</div>
