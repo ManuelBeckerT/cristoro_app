@@ -6,6 +6,25 @@
        :class => "inbox-sf-add-btn tip", :method => :get %>
 </div>
 
+
+<div class = "container text-center">
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Comunas
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <% @comunas.each do |comuna| %>
+        <li>
+          <%= link_to comuna, calls_path(filtro_comuna: comuna), class: "link" %>
+        </li>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+
+
 <div class="container">
   <table class="table table-hover">
     <thead>
