@@ -1,76 +1,80 @@
+<div class = "container text-center">
+  <%= form_with(model: register, local: true) do |form| %>
+    <% if register.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(register.errors.count, "error") %> encontrados</h2>
 
-<%= form_with(model: register, local: true) do |form| %>
-  <% if register.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(register.errors.count, "error") %> prohibited this register from being saved:</h2>
+        <ul>
+        <!--<% register.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        -->
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% register.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class = "field">
+        <%= form.select :comuna, [['Alhué','Alhué'],['Buin','Buin'],['Calera de Tango','Calera de Tango'],
+        ['Cerrillos','Cerrillos'],['Cerro Navia','Cerro Navia'],['Colina','Colina'],
+        ['Conchalí','Conchalí'],['Curacaví','Curacaví'],['El Bosque','El Bosque'],
+        ['El Monte','El Monte'],['Estación Central','Estación Central'],['Huechuraba','Huechuraba'],
+        ['Independencia','Independencia'],['Isla de Maipo','Isla de Maipo'],['La Cisterna','La Cisterna'],
+        ['La Florida','La Florida'],['La Granja','La Granja'],['La Pintana','La Pintana'],
+        ['La Reina','La Reina'],['Lampa','Lampa'],['Las Condes','Las Condes'],
+        ['Lo Barnechea','Lo Barnechea'],['Lo Espejo','Lo Espejo'],['Lo Prado','Lo Prado'],
+        ['Macul','Macul'],['Maipú','Maipú'],['María Pinto','María Pinto'],
+        ['Melipilla','Melipilla'],['Ñuñoa','Ñuñoa'],['Padre Hurtado','Padre Hurtado'],
+        ['Paine','Paine'],['Pedro Aguirre Cerda','Pedro Aguirre Cerda'],['Peñaflor','Peñaflor'],
+        ['Peñalolén','Peñalolén'],['Pirque','Pirque'],['Providencia','Providencia'],
+        ['Pudahuel','Pudahuel'],['Puente Alto','Puente Alto'],['Quilicura','Quilicura'],
+        ['Quinta Normal','Quinta Normal'],['Recoleta','Recoleta'],['Renca','Renca'],
+        ['San Bernardo','San Bernardo'],['San Joaquín','San Joaquín'],['San José de Maipo','San José de Maipo'],
+        ['San Miguel','San Miguel'],['San Pedro','San Pedro'],['San Ramón','San Ramón'],
+        ['Santiago','Santiago'],['Talagante','Talagante'],['Til Til','Til Til'],
+        ['Vitacura','Vitacura']], :prompt => "Seleccionar una comuna"%>
     </div>
+
+
+    <div class="field">
+      <%= form.label :calle %>
+      <%= form.text_field :calle, id: :register_calle %>
+    </div>
+
+    <div class="field">
+      <%= form.label :numero, 'Número' %>
+      <%= form.number_field :numero, id: :register_numero %>
+    </div>
+
+    <div class="field">
+      <%= form.label :encargado %>
+      <%= form.text_field :encargado, id: :register_encargado %>
+    </div>
+
+    <div class="field">
+      <%= form.label :telefono, 'Teléfono +56 9 ' %>
+      <%= form.number_field :telefono, id: :register_telefono %>
+    </div>
+
+    <div class="field">
+      <%= form.label :correo %>
+      <%= form.text_field :correo, id: :register_correo, placeholder: 'user@domain.com' %>
+
+    </div>
+
+    <div class="field">
+      <%= form.label :contenedores %>
+      <%= form.number_field :contenedores, id: :register_contenedores %>
+    </div>
+
+    <div class = "field">
+        <%= form.select :establecimiento, [['Casa','Casa'],['Edificio','Edificio'],['Club Deportivo','Club Deportivo'],
+        ['Centro de Eventos','Centro de Eventos']], :prompt => "Seleccionar tipo de establecimiento"%>
+    </div>
+
+
+      <div class="actions">
+        <%= form.submit "Crear"%>
+      </div>
+
   <% end %>
-
-  <div class = "field">
-      <%= form.select :comuna, [['Alhué','Alhué'],['Buin','Buin'],['Calera de Tango','Calera de Tango'],
-      ['Cerrillos','Cerrillos'],['Cerro Navia','Cerro Navia'],['Colina','Colina'],
-      ['Conchalí','Conchalí'],['Curacaví','Curacaví'],['El Bosque','El Bosque'],
-      ['El Monte','El Monte'],['Estación Central','Estación Central'],['Huechuraba','Huechuraba'],
-      ['Independencia','Independencia'],['Isla de Maipo','Isla de Maipo'],['La Cisterna','La Cisterna'],
-      ['La Florida','La Florida'],['La Granja','La Granja'],['La Pintana','La Pintana'],
-      ['La Reina','La Reina'],['Lampa','Lampa'],['Las Condes','Las Condes'],
-      ['Lo Barnechea','Lo Barnechea'],['Lo Espejo','Lo Espejo'],['Lo Prado','Lo Prado'],
-      ['Macul','Macul'],['Maipú','Maipú'],['María Pinto','María Pinto'],
-      ['Melipilla','Melipilla'],['Ñuñoa','Ñuñoa'],['Padre Hurtado','Padre Hurtado'],
-      ['Paine','Paine'],['Pedro Aguirre Cerda','Pedro Aguirre Cerda'],['Peñaflor','Peñaflor'],
-      ['Peñalolén','Peñalolén'],['Pirque','Pirque'],['Providencia','Providencia'],
-      ['Pudahuel','Pudahuel'],['Puente Alto','Puente Alto'],['Quilicura','Quilicura'],
-      ['Quinta Normal','Quinta Normal'],['Recoleta','Recoleta'],['Renca','Renca'],
-      ['San Bernardo','San Bernardo'],['San Joaquín','San Joaquín'],['San José de Maipo','San José de Maipo'],
-      ['San Miguel','San Miguel'],['San Pedro','San Pedro'],['San Ramón','San Ramón'],
-      ['Santiago','Santiago'],['Talagante','Talagante'],['Til Til','Til Til'],
-      ['Vitacura','Vitacura']], :prompt => "Seleccionar una comuna"%>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :calle %>
-    <%= form.text_field :calle, id: :register_calle %>
-  </div>
-
-  <div class="field">
-    <%= form.label :numero, 'Número' %>
-    <%= form.number_field :numero, id: :register_numero %>
-  </div>
-
-  <div class="field">
-    <%= form.label :encargado %>
-    <%= form.text_field :encargado, id: :register_encargado %>
-  </div>
-
-  <div class="field">
-    <%= form.label :telefono, 'Teléfono +56 9 ' %>
-    <%= form.number_field :telefono, id: :register_telefono %>
-  </div>
-
-  <div class="field">
-    <%= form.label :correo %>
-    <%= form.text_field :correo, id: :register_correo, placeholder: 'user@domain.com' %>
-
-  </div>
-
-  <div class="field">
-    <%= form.label :contenedores %>
-    <%= form.number_field :contenedores, id: :register_contenedores %>
-  </div>
-
-  <div class = "field">
-      <%= form.select :establecimiento, [['Casa','Casa'],['Edificio','Edificio'],['Club Deportivo','Club Deportivo'],
-      ['Centro de Eventos','Centro de Eventos']], :prompt => "Seleccionar tipo de establecimiento"%>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
